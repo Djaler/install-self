@@ -12,6 +12,9 @@
   "bin": {
     "install-self": "cli/install-self.js"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jamesrichford/install-self.git"
@@ -30,7 +33,7 @@
   },
   "homepage": "https://github.com/jamesrichford/install-self#readme",
   "devDependencies": {
-    "@types/node": "0.0.2",
+    "@types/node": "^10.14.5",
     "alsatian": "^1.0.0-beta.4",
     "typescript": "^2.0.10"
   }

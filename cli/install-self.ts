@@ -13,16 +13,20 @@ const packageJson = require(packageDirectory + "/package.json");
 // with the following contents
 // module.exports = require("..");
 
+const isScopedPackage = (packageJson.name as string).includes('/');
+
 const packageNodeModuleDirectory = packageDirectory + "/node_modules/" + packageJson.name;
 
 if (!FileSystem.existsSync(packageNodeModuleDirectory)) {
-    FileSystem.mkdirSync(packageNodeModuleDirectory);
+    FileSystem.mkdirSync(packageNodeModuleDirectory, { recursive: isScopedPackage });
 }
 
-packageJson.main = "../../" + packageJson.main;
+const nestingLevel = isScopedPackage ? 3 : 2;
+
+packageJson.main = "../".repeat(nestingLevel) + packageJson.main;
 
 if (packageJson.typings) {
-    packageJson.typings = "../../" + packageJson.typings;
+    packageJson.typings = "../".repeat(nestingLevel) + packageJson.typings;
 }
 
 FileSystem.writeFileSync(packageNodeModuleDirectory + "/package.json", JSON.stringify(packageJson, null, 4));
