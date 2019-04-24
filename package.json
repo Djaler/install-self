@@ -1,11 +1,11 @@
 {
-  "name": "install-self",
-  "version": "1.0.0-beta.7",
+  "name": "@djaler/install-self",
+  "version": "1.0.0",
   "description": "Self-reference an NPM module and get rid of relative references",
   "main": "core/install-self.js",
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build && npm test",
+    "prepublishOnly": "npm test && npm run build",
     "pretest": "npm run build && node cli/install-self.js",
     "test": "alsatian \"**/*.spec.js\""
   },
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesrichford/install-self.git"
+    "url": "git+https://github.com/djaler/install-self.git"
   },
   "keywords": [
     "install",
@@ -27,11 +27,17 @@
     "reference"
   ],
   "author": "James Richford <=> (=)",
+  "contributors": [
+    "Kirill Romanov <djaler1@gmail.com> (https://djaler.github.io/)"
+  ],
+  "maintainers": [
+    "Kirill Romanov <djaler1@gmail.com> (https://djaler.github.io/)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamesrichford/install-self/issues"
+    "url": "https://github.com/djaler/install-self/issues"
   },
-  "homepage": "https://github.com/jamesrichford/install-self#readme",
+  "homepage": "https://github.com/djaler/install-self#readme",
   "devDependencies": {
     "@types/node": "^10.14.5",
     "alsatian": "^1.0.0-beta.4",

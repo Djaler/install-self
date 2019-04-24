@@ -4,6 +4,6 @@ export default class ImportTests {
 
     @Test()
     public mainIsRequired() {
-        Expect(require("install-self")).toBe(require("../../../../core/install-self"));
+        Expect(require("@djaler/install-self")).toBe(require("../../../../core/install-self"));
     }
 }
